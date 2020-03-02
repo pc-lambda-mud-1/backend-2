@@ -39,7 +39,10 @@ Example request: `curl -X POST -H "Content-Type: application/json" -d '{"usernam
 
 Returns: `{"key":"b68053489a3f876aa93716ba28ab437633aa8389"}`
 
-- Welcome: http://localhost:8000/api/welcome
+##  Welcome: http://localhost:8000/api/welcome
 
-Protected: 
+Protected: requires valid token in header
+
 Accepts: GET
+
+Returns: `{"message": "Welcome to our MUD Game"}`
