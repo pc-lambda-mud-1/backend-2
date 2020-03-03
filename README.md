@@ -1,5 +1,5 @@
 # Backend
-Backend Django app
+Backend Django project for our CS build week 1 project
 
 # Instructions 
 
@@ -20,3 +20,29 @@ DEBUG=True
  `pipenv shell`
 
 - Run the development server with `python manage.py runserver`
+
+# Endpoints
+
+## Registration: http://localhost:8000/registration
+
+Accepts: POST
+
+-Example request: `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password1":"testpassword", "password2":"testpassword"}' localhost:8000/registration`
+
+Returns: `{"key":"b68053489a3f876aa93716ba28ab437633aa8389"}`   
+
+## Login: http://localhost:8000/login
+
+Accepts: POST
+
+Example request: `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' localhost:8000/login/  `
+
+Returns: `{"key":"b68053489a3f876aa93716ba28ab437633aa8389"}`
+
+##  Welcome: http://localhost:8000/api/welcome
+
+Protected: requires valid token in header
+
+Accepts: GET
+
+Returns: `{"message": "Welcome to our MUD Game"}`

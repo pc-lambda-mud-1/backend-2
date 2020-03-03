@@ -33,6 +33,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -51,6 +52,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
 ]
+
+# Auth settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,6 +88,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mudbuild.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
 
 DATABASE_URL = config('DATABASE_URL')
 
