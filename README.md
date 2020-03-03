@@ -35,7 +35,7 @@ Returns: `{"key":"b68053489a3f876aa93716ba28ab437633aa8389"}`
 
 Accepts: POST
 
-Example request: `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' localhost:8000/login/  `
+Example request: `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser9", "password":"testpassword9"}' localhost:8000/login/ `
 
 Returns: `{"key":"b68053489a3f876aa93716ba28ab437633aa8389"}`
 
@@ -48,3 +48,15 @@ Accepts: GET
 Example request: `curl -X GET -H 'Authorization: Token 6b7b9d0f33bd76e75b0a52433f268d3037e42e66' localhost:8000/api/welcome/`
 
 Returns: `{"message": "Welcome to our MUD Game"}`
+
+# Init 
+
+Accepts: GET
+
+Example request: `curl -X GET -H 'Authorization: Token a638e1e9abde408cb498f294e9c4b0cf677eba93' localhost:8000/api/game/init`
+
+# Move
+
+Accepts: POST
+
+Example request: `curl -X POST -H 'Authorization: Token a638e1e9abde408cb498f294e9c4b0cf677eba93' -H "Content-Type: application/json" -d '{"direction":"n"}' localhost:8000/api/game/move`
