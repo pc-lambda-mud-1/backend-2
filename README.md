@@ -45,4 +45,6 @@ Protected: requires valid token in header
 
 Accepts: GET
 
+Example request: `curl -X GET -H 'Authorization: Token 6b7b9d0f33bd76e75b0a52433f268d3037e42e66' localhost:8000/api/welcome/`
+
 Returns: `{"message": "Welcome to our MUD Game"}`
