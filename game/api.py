@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from .models import *
 from rest_framework.decorators import api_view
 import json
+from game.models import Room
 
 @csrf_exempt
 @api_view(["GET"])
@@ -19,7 +20,14 @@ def initialize(request):
     room = player.room()
     players = room.playerNames(player_id)
     return JsonResponse({'uuid': uuid, 'name':player.user.username, 'title':room.title, 'description':room.description, 'players':players}, safe=True)
-
+  
+#get data endpoint
+# @csrf_exempt
+@api_view(["GET"])
+def rooms(request):
+  rooms = Room.objects.all().values()
+  return JsonResponse({"rooms": list(rooms)})
+  
 # @csrf_exempt
 @api_view(["POST"])
 def move(request):

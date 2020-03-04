@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "/Users/dominiceccleston/.local/share/virtualenvs/mudbuild-mb9xAmP8/bin/python"
+    "python.pythonPath": "C:\\Users\\loki\\.virtualenvs\\backend-2-cv3XXH5W\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
