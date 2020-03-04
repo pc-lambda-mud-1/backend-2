@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from adventure.models import Player, Room
+from game.models import Player, Room
 
 
 Room.objects.all().delete()
@@ -91,7 +91,7 @@ r_alley.connectRooms(r_old_kitchen, "n")
 r_old_kitchen.connectRooms(r_alley, "s")
 
 r_alley.connectRooms(r_twelve, "e")
-r_twelve(r_alley, "w")
+r_twelve.connectRooms(r_alley, "w")
 
 r_twelve.connectRooms(r_thirteen, "n")
 r_thirteen.connectRooms(r_twelve, "s")
