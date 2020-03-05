@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from game.models import Player, Room
+from util.generate_world import World
 
 
 Room.objects.all().delete()
