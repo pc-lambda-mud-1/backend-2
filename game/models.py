@@ -15,6 +15,8 @@ class Room(models.Model):
     x = models.IntegerField(default=0)
     y = models.IntegerField(default=0)
     def connect_rooms(self, destinationRoom, direction):
+        reverse_dirs = {"n": "s", "s": "n", "e": "w", "w": "e"}
+        reverse_dir = reverse_dirs[direction]
         destinationRoomID = destinationRoom.id
         try:
             destinationRoom = Room.objects.get(id=destinationRoomID)
@@ -23,12 +25,16 @@ class Room(models.Model):
         else:
             if direction == "n":
                 self.n_to = destinationRoomID
+                destinationRoom.s_to = self.id
             elif direction == "s":
                 self.s_to = destinationRoomID
+                destinationRoom.n_to = self.id
             elif direction == "e":
                 self.e_to = destinationRoomID
+                destinationRoom.w_to = self.id
             elif direction == "w":
                 self.w_to = destinationRoomID
+                destinationRoom.e_to = self.id
             else:
                 print("Invalid direction")
                 return
